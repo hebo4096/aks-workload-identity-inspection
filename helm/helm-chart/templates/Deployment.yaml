@@ -1,0 +1,31 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: {{ include "az-cli.fullname" . }}
+{{- if .Values.aksWorkloadIdentity.enabled }}
+  namespace: {{ .Values.aksWorkloadIdentity.namespace }}
+{{- end }}
+  labels:
+    {{- include "az-cli.labels" . | nindent 4 }}
+spec:
+  replicas: {{ .Values.replicaNum }}
+  selector:
+    matchLabels:
+      {{- include "az-cli.selectorLabels" . | nindent 6 }}
+  template:
+    metadata:
+      labels:
+        azure.workload.identity/use: "true"
+        {{- include "az-cli.labels" . | nindent 8 }}
+      namespace: {{ .Values.aksWorkloadIdentity.namespace }}
+    spec:
+      containers:
+      - name: {{ .Chart.Name }}
+        image: "{{ .Values.image.repository }}:{{ .Values.image.tag }}"
+        imagePullPolicy: {{ .Values.image.pullPolicy }}
+        command:
+        - sleep
+        - "5000"
+    {{- if .Values.aksWorkloadIdentity.enabled }}
+      serviceAccountName: {{ .Values.aksWorkloadIdentity.serviceAccountName }}
+    {{- end }}

@@ -1,0 +1,8 @@
+apiVersion: v2
+name: azure-cli
+description: A Helm chart of azure-cli for inspection of workload identity
+version: 1.0.0
+appVersion: 1.0.0
+maintainers:
+  - name: Shogo Shimahara
+    email: shogo811dq@gmail.com

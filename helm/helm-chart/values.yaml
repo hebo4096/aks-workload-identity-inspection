@@ -1,0 +1,12 @@
+image:
+  repository: mcr.microsoft.com/azure-cli
+  tag: latest
+  pullPolicy: IfNotPresent
+
+replicaNum: 1
+
+aksWorkloadIdentity:
+  enabled: false
+  serviceAccountName: your-sa
+  clientId: 00000000-0000-0000-0000-000000000000
+  namespace: default

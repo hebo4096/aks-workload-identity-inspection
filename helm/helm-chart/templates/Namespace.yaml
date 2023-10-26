@@ -1,0 +1,8 @@
+{{- if .Values.aksWorkloadIdentity.enabled -}}
+kind: Namespace
+apiVersion: v1
+metadata:
+  name: {{ .Values.aksWorkloadIdentity.namespace }}
+  labels:
+    name: {{ .Values.aksWorkloadIdentity.namespace }}
+{{- end }}
