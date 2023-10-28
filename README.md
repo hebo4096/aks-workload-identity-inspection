@@ -5,7 +5,7 @@ Workload Identity on Azure Kubernetes Service (AKS) を試すためのリポジ�
 このリポジトリでは、Workload Identity の資格情報により、Azure CLI でのサインインができるところまでの検証を行います。
 
 ### 事前にインストールが必要なツール
-- azure CLI
+- azure CLI (v2.47.0 以降 -> [公開情報](https://learn.microsoft.com/ja-jp/azure/aks/workload-identity-deploy-cluster) より)
   - インストール手順は [こちら](https://learn.microsoft.com/ja-jp/cli/azure/install-azure-cli)
 - Terraform
   - インストール手順は [こちら](https://developer.hashicorp.com/terraform/tutorials/aws-get-started/install-cli)
