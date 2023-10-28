@@ -64,7 +64,7 @@ terraform -chdir=./helm apply
 
 ```
 // open azure CLI pod with shell
-$ kubectl exec -it $(kubectl get po -n azcli --no-headers | awk '{ print $1 }') -n azcli -- sh
+$ kubectl exec -it $(kubectl get po -n { 1. の手順の namespace_for_helm } --no-headers | awk '{ print $1 }') -n { 1. の手順の namespace_for_helm } -- sh
 
 // login with pod workload identity (= managed ID)
 / # az login --federated-token "$(cat $AZURE_FEDERATED_TOKEN_FILE)" --service-principal -u $AZURE_CLIENT_ID -t $AZURE_TENANT_ID
