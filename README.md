@@ -13,6 +13,7 @@ Workload Identity on Azure Kubernetes Service (AKS) を試すためのリポジ�
 ## how to start
 1. Terraform を利用して、Azure リソースをデプロイします
 ```
+terraform -chdir=./azure init
 terraform -chdir=./azure apply
 ```
 
@@ -43,6 +44,7 @@ az aks get-credentials -g aks-workload-identity-rg -n wid-k8s-cluster
 4. Helm (Terraform Provider) で Azure CLI Pod をインストールする
 
 ```
+terraform -chdir=./helm init
 terraform -chdir=./helm apply
 ```
 
