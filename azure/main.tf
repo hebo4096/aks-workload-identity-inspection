@@ -3,7 +3,7 @@ provider "azurerm" {
 }
 
 resource "azurerm_resource_group" "this" {
-  name = "aks-workload-identity-rg"
+  name     = "aks-workload-identity-rg"
   location = var.location
 }
 
@@ -11,7 +11,7 @@ resource "azurerm_resource_group" "this" {
 module "aks" {
   source = "./modules/aks"
 
-  rg_name = azurerm_resource_group.this.name
+  rg_name  = azurerm_resource_group.this.name
   location = var.location
 }
 
@@ -19,10 +19,10 @@ module "aks" {
 module "managed_id" {
   source = "./modules/managed-id"
 
-  rg_name = azurerm_resource_group.this.name
+  rg_name  = azurerm_resource_group.this.name
   location = var.location
 
-  namespace = var.namespace
+  namespace            = var.namespace
   service_account_name = var.service_account_name
-  oidc_issuer_url = module.aks.oidc_issuer_url
+  oidc_issuer_url      = module.aks.oidc_issuer_url
 }

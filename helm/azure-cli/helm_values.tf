@@ -3,22 +3,22 @@ resource "helm_release" "azure_cli" {
   chart = "${path.root}/helm-chart"
 
   set {
-    name = "aksWorkloadIdentity.enabled"
+    name  = "aksWorkloadIdentity.enabled"
     value = true
   }
 
   set {
-    name = "aksWorkloadIdentity.clientId"
+    name  = "aksWorkloadIdentity.clientId"
     value = var.client_id
   }
 
   set {
-    name = "aksWorkloadIdentity.namespace"
+    name  = "aksWorkloadIdentity.namespace"
     value = var.namespace
   }
 
   set {
-    name = "aksWorkloadIdentity.serviceAccountName"
+    name  = "aksWorkloadIdentity.serviceAccountName"
     value = var.service_account_name
   }
 }
