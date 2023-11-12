@@ -41,7 +41,7 @@ az aks install-cli --client-version 1.27.3
 az aks get-credentials -g aks-workload-identity-rg -n wid-k8s-cluster
 ```
 
-4. Helm (Terraform Provider) で Azure CLI Pod をインストールする
+3. Helm (Terraform Provider) で Azure CLI Pod をインストールする
 
 ```
 terraform -chdir=./helm init
